@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Pro Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prism.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Gemini Pro</h2>
+            <p>Text, Code, and Image Assistant</p>
+        </div>
+
+        <div class="mode-selector">
+            <button id="mode-chat" class="active">Chat & Vision</button>
+            <button id="mode-image">Image Generation</button>
+        </div>
+
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will be dynamically inserted here -->
+        </div>
+
+        <div class="chat-input-area">
+            <form id="chat-form">
+                <div class="image-upload-wrapper" id="image-upload-container">
+                    <label for="image-upload" class="image-upload-label">
+                        <span class="material-symbols-outlined">add_photo_alternate</span>
+                        <span id="image-name" class="image-name"></span>
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
+                <textarea id="user-prompt" placeholder="Ask Gemini anything..." rows="1"></textarea>
+                <button type="submit" id="send-btn">
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Template for Code Blocks -->
+    <template id="code-block-template">
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <span class="language-name"></span>
+                <button class="copy-code-btn">
+                    <span class="material-symbols-outlined">content_copy</span>
+                    Copy Code
+                </button>
+            </div>
+            <pre><code class="code-content"></code></pre>
+        </div>
+    </template>
+    
+    <script src="{{ url_for('static', filename='js/prism.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
